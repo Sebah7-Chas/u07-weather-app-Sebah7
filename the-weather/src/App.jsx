@@ -4,19 +4,31 @@
 import './App.css'
 import GetForcast from './components/GetForcast'
 import GetLocation from './components/GetLocation'
+import Weather from './components/WeatherM';
+// import React from 'react'
 
-function App() {
-  // const [count, setCount] = useState(0)
+// function App() {
+//   // const [count, setCount] = useState(0)
 
+//   return (
+//     <>
+//       <h1>The Weather</h1>
+//       <GetForcast />
+//       <GetLocation />
+//       <Weather />
+//     </>
+//   )
+// }
+
+const App = () => {
   return (
-    <>
-      <h1>The Weather</h1>
+    <div>
+      <h1>Weather Forecast App</h1>
       <GetForcast />
       <GetLocation />
-    </>
-  )
-}
-
-
+      <Weather />
+    </div>
+  );
+};
 
 export default App
