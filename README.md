@@ -1,8 +1,8 @@
 ### Info checklist
 
-- [ ] React project creation
-- [ ] Components (folder structure)
-- [ ] JSX
+- [x] React project creation
+- [x] Components (folder structure)
+- [x] JSX
 - [ ] Probs
 - [ ] Children
 - [ ] State
