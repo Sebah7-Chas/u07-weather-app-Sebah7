@@ -16,7 +16,7 @@ const GetLocation = () => {
   };
 
   return (
-    <div>
+    <div id="childcomponent">
       <button onClick={getLocation}>Get Location</button>
       <p>Latitude: {location.latitude}</p>
       <p>Longitude: {location.longitude}</p>
