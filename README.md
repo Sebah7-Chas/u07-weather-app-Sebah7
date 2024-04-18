@@ -50,6 +50,13 @@ cd projectname
 npm install
 npm run dev
 
+### Documentation of steps
+
+- public folder has suncloud svg instead of the vite logo. Imported in the index.html file.
+- components folder created to contain the components/functions needed.
+- imported in the APP.jsx
+- installed required dependencies.
+
 -------------------------
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/rBfB12PE)
