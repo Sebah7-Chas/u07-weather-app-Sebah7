@@ -46,7 +46,7 @@ const Weather = () => {
       {/* // Documentation: The weather data is displayed when available.
        If the weatherData is null then message "No city chosen yet..." */}
       {weatherData ? (
-        <>
+        <div id="childcomponent">
           <h2>{weatherData.name}</h2>
           <p>Temperature: {weatherData.main.temp}°C</p>
           <p>Description: {weatherData.weather[0].description}</p>
@@ -54,7 +54,7 @@ const Weather = () => {
           <p>Humidity : {weatherData.main.humidity}%</p>
           <p>Pressure : {weatherData.main.pressure}</p>
           <p>Wind Speed : {weatherData.wind.speed}m/s</p>
-        </>
+        </div>
       ) : (
         <p>No city chosen yet...</p>
       )}
