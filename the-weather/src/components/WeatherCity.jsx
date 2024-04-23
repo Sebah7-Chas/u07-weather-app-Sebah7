@@ -4,14 +4,14 @@ import axios from 'axios';
 const Weather = () => {
   const [city, setCity] = useState(''); // Documentation: State city to store city name and send to the API.
   const [weatherData, setWeatherData] = useState(null); // Documentation: A state variable to store the weather data fetched from the API.
-
+  const appId = import.meta.env.VITE_APP_ID; // Documentation: The API Id is stored in the .env file and accessed using import.meta.env.  
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=a75e1e279514fb634c1e3e7bdbc51870`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${appId}`
       );
       setWeatherData(response.data); // Documentation: Here, a promise is returned by axios.get(), and await is used to wait for the promise to resolve. The response is stored in the response variable. The weather data is then set in the weatherData state using setWeatherData(response.data).
-      console.log(response.data); //You can see all the weather data in console log. // Documentation: Here we can see all the weather data in console log.
+      console.log(response.data); // Documentation: Here we can see all the weather data in console log.
     } catch (error) {
       console.error(error);
     }

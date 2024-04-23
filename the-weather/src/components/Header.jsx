@@ -1,6 +1,6 @@
 import { Link, Outlet  } from "react-router-dom";
 import HeaderIMG from "../assets/header2.png"
-import Weather from "./WeatherM";
+import Weather from "./WeatherCity";
 // import { useState } from "react";
 // import Weather from "./WeatherM";
 

@@ -4,7 +4,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter, } from 'react-router-dom';
 import App from './App';
 import GetLocation from './components/GetLocation.jsx';
-import Weather from './components/WeatherM.jsx';
+import Weather from './components/WeatherCity.jsx';
 import Header from './components/Header.jsx';
 
 const router = createBrowserRouter([
