@@ -1,10 +1,10 @@
-
 import './App.css'
 
 const App = () => {
   return (
-    <div id="childcomponent">
-      <h1>The Weathering Weather!</h1>
+    <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 
+    bg-gradient-to-br from-cyan-700 to-blue-200 h-fit 
+    shadow-xl shadow-gray-100">
     </div>
   );
 };
