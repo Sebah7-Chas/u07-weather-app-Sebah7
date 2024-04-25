@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { UilSearch, UilLocationPoint} from '@iconscout/react-unicons'
-import Results from './SearchResults';
+import Results from '../result/SearchResults';
 import { Link } from 'react-router-dom';
 
 
@@ -13,15 +13,18 @@ const Weather = () => {
 
   
   const fetchData = async () => {
+
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${appId}`
-      );
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appId}&units=metric`)
+    
       setWeatherData(response.data); // Documentation: Here, a promise is returned by axios.get(), and await is used to wait for the promise to resolve. The response is stored in the response variable. The weather data is then set in the weatherData state using setWeatherData(response.data).
       console.log(response.data); // Documentation: Here we can see all the weather data in console log.
+  
     } catch (error) {
       console.error(error);
     }
+
   }; // Documentation: Fetch data from the API using the city name and set the weather data in the weatherData state.
 
   useEffect(() => {
@@ -60,11 +63,12 @@ const Weather = () => {
       <Link to="getlocation"> 
       <button>
       <UilLocationPoint size={25} className='text-white cursor-pointer transition ease-out hover:scale-125' />
-            {/* className='text-white text-lg font-meduim' >Pin</Link> {" "} | {" "} */}
+          {/* className='text-white text-lg font-meduim' >Pin</Link> {" "} | {" "} */}
       </button>
       </Link>
 
       </form>
+
 
       <div className='flex flex-row w-1/4 items-center justify-center'>  
       <button name='metric' className='text-xl text-white font-light'
@@ -73,6 +77,16 @@ const Weather = () => {
       <button name='imperial' className='text-xl text-white font-light'
       >°F</button>
       </div>
+
+      {hasSearched && weatherData && (
+        <>
+        </>
+        // <div>
+        //   <h2>Current Weather</h2>
+        //   <p>Temperature: {weatherData.current.main.temp}°C</p>
+        //   <Forcast forecastData={weatherData.forecast} />
+        // </div>
+      )}
     
     </div> 
 
