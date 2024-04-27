@@ -92,7 +92,7 @@ const Weather = () => {
         <form onSubmit={handleCitySubmit} className='flex flex-row w-3/4 items-center justify-center space-x-4'>
           <input type="text" placeholder="Enter city name . . ."
             value={city} onChange={handleInputChange}
-            className='text-xl font-light p-2 focus:outline-none w-full shadow-xl capitalize placeholder:lowercase'
+            className='text-xl font-light p-2 focus:outline-none w-full shadow-xl capitalize placeholder:lowercase rounded-lg'
           />
           <button type="submit">
             <UilSearch size={25} className='text-white cursor-pointer transition ease-out hover:scale-125' />
@@ -102,9 +102,9 @@ const Weather = () => {
           <UilLocationPoint size={25} className='text-white cursor-pointer transition ease-out hover:scale-125' />
         </button>
         <div className='flex flex-row w-1/4 items-center justify-center'>
-          <button onClick={handleUnitsChange} name='metric' className='text-xl text-white font-light'>{units === 'metric' ? '°C' : '°F'}</button>
+          <button onClick={handleUnitsChange} name='metric' className='text-xl text-white font-bold'>{units === 'metric' ? '°C' : '°F'}</button>
           <p className='text-xl text-white mx-1'>|</p>
-          <button onClick={handleUnitsChange} name='imperial' className='text-xl text-white font-light'>{units === 'metric' ? '°F' : '°C'}</button>
+          <button onClick={handleUnitsChange} name='imperial' className='text-xl text-white font-bold'>{units === 'metric' ? '°F' : '°C'}</button>
         </div>
         {hasSearched && weatherData && forecastData && (
           <>

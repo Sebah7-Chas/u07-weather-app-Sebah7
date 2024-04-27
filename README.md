@@ -11,8 +11,8 @@
 - [x] Weekly(5 days) weather forcast of specific location.
 - [x] Geolocation
 - [x] API: OpenWeatherMaps
-- [ ] Responsive design
-- [ ] Deployment
+- [x] Responsive design
+- [x] Deployment
 
 ### Extras
 
