@@ -19,8 +19,12 @@ const Results = ({ weatherData, hasSearched, units }) => {
         <div>
           <div className='flex items-center justify-center my-6'>
           <p className='text-white text-xl font-extralight'>
-            Tuesday, 23rd April 2024 | Local time: 12:46 PM
-            {/* Local time: {weatherData.sys.timezone} */}
+          {new Date((weatherData.dt + weatherData.timezone) * 1000).toLocaleDateString('en-US', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })} | Local time: {new Date((weatherData.dt + weatherData.timezone) * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </p>
           </div>
           

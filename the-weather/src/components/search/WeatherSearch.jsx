@@ -61,6 +61,7 @@ const Weather = () => {
   const handleCitySubmit = (e) => {
     e.preventDefault();
     fetchDataByCity(city);
+    setCity('');
   };
 
   const handleLocationClick = () => {
