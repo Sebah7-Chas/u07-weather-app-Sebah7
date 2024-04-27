@@ -8,17 +8,17 @@ import Blue from "../assets/blue.png";
 
 function HomePage() {
   return (
-    <>
-    <div className="mx-auto max-w-screen-md mt-4 py-5 px-32
-bg-cover bg-no-repeat bg-center
-" style={{backgroundImage: `url(${Blue})`}}>
+    <div className="min-h-screen bg-cover bg-no-repeat bg-center" 
+    style={{backgroundImage: `url(${Blue})`}}>
+
+    <div className="mx-auto max-w-screen-md py-2 px-4 sm:px-6 lg:px-8">
     <Header />
     <Weather />
     <Results />
     <Forcast/>
     <Outlet />
     </div>
-    </>
+    </div>
   )
 }
 
