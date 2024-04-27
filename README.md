@@ -12,28 +12,25 @@
 
 ### Project goals
 
-- Display currunt weather of specific location
-  - Temperature
-  - Wind strength
-  - Humidity
-  - Sunrise and sunset (time)
-  - Choose between Fahrenheit and Celsius
-- Hourly weather forcast of specific location.
-- Weekly(5 days) weather forcast of specific location.
-- Geolocation
-- API: SMHI, YR.NO, OpenWeatherMaps, or [WeatherAPI](https://www.weatherapi.com/)
-- Responsive design
-- Deployment
+- [x]Display currunt weather of specific location
+  - [x] Temperature
+  - [x] Wind strength
+  - [x] Humidity
+  - [x] Sunrise and sunset (time)
+  - [ ] Choose between Fahrenheit and Celsius
+- [x] Hourly weather forcast of specific location.
+- [x] Weekly(5 days) weather forcast of specific location.
+- [x] Geolocation
+- [x] API: SMHI, YR.NO, OpenWeatherMaps, or [WeatherAPI](https://www.weatherapi.com/)
+- [x] Responsive design
+- [ ] Deployment
 
 ### Extras
 
-- The user can set/search for weather on a position manually
-- The user can save weather forecast locations in a list
-- The user can get graphs in their forecast over time, which include:
-  - Highest / lowest temperature
-  - Average of highest / lowest temperature
-- The user can display weather fronts on the map with radar (the API for this can be found e.g. hereLinks to an external site.)
-- Average rainfall
+- [x] The user can set/search for weather on a position manually
+- [ ] The user can get graphs in their forecast over time, which include:
+  - [ ] Highest / lowest temperature
+  - [ ] Average of highest / lowest temperature
 
 -------------------------
 
