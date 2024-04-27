@@ -12,11 +12,11 @@ const router = createBrowserRouter([
       <HomePage/>
     ),
     children: [
-      { path: "home", element: <HomePage/>},
+      { path: "home", element: <HomePage />},
       { path: "getlocation", 
       element: <GetLocation />},
       { path: "weather",
-    element: <Weather />}
+      element: <Weather />}
     ]
   },
 ]);
