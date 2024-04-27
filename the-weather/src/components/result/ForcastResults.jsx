@@ -2,6 +2,19 @@ import PropTypes from 'prop-types';
 
 const Forecast = ({ forecastData, hasSearched, units }) => {
 
+
+  const groupForecastByDay = () => {
+    const groupedForecast = {};
+    forecastData.list.forEach(forecast => {
+      const date = new Date(forecast.dt * 1000).toLocaleDateString();
+      if (!groupedForecast[date]) {
+        groupedForecast[date] = forecast;
+      }
+    });
+    return Object.values(groupedForecast);
+  };
+  
+
   return (
     <>
       {forecastData ? (
@@ -13,9 +26,9 @@ const Forecast = ({ forecastData, hasSearched, units }) => {
 
           <div className="flex flex-row items-center justify-between text-white">
             
-            {forecastData.list.slice(0, 5).map((forcast, index) => (
+            {groupForecastByDay().map((forcast, index) => (
               <div key={index} className="flex flex-col items-center justify-center">
-                <p className="font-light text-sm">{new Date(forcast.dt * 1000).toLocaleTimeString([], { weekday: 'short' })}</p>
+                <p className="font-light text-sm">{new Date(forcast.dt * 1000).toLocaleTimeString([], { weekday: 'short',  hour: '2-digit', minute: '2-digit' })}</p>
                 <img src={`https://openweathermap.org/img/wn/${forcast.weather[0].icon}@2x.png`} alt="Weather icon" className="w-12 my-1" />
                 <p className="font-medium">{units === 'metric' ? Math.round(forcast.main.temp) + '°C' : Math.round(forcast.main.temp * 9 / 5 + 32) + '°F'}</p>
               </div>
@@ -30,7 +43,7 @@ const Forecast = ({ forecastData, hasSearched, units }) => {
 
 {/* Display Hourly Forecast */}
 <div className="flex flex-row items-center justify-between text-white">
-  {forecastData.list.slice(0, 8).map((forecast, index) => (
+  {forecastData.list.slice(0,8).map((forecast, index) => (
     <div key={index} className="flex flex-col items-center justify-center">
       <p className="font-light text-sm">{new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
       <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt="Weather icon" className="w-12 my-1" />
