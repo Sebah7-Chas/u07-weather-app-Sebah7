@@ -17,9 +17,9 @@
   - [x] Wind strength
   - [x] Humidity
   - [x] Sunrise and sunset (time)
-  - [ ] Choose between Fahrenheit and Celsius
+  - [x] Choose between Fahrenheit and Celsius
 - [x] Hourly weather forcast of specific location.
-- [x] Weekly(5 days) weather forcast of specific location.
+- [ ] Weekly(5 days) weather forcast of specific location.
 - [x] Geolocation
 - [x] API: SMHI, YR.NO, OpenWeatherMaps, or [WeatherAPI](https://www.weatherapi.com/)
 - [x] Responsive design
