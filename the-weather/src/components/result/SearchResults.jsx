@@ -8,7 +8,7 @@ import { UilTemperatureHalf,
 } from '@iconscout/react-unicons';
 
 
-const Results = ({ weatherData, hasSearched }) => {
+const Results = ({ weatherData, hasSearched, units }) => {
 
   return (
 
@@ -36,20 +36,19 @@ const Results = ({ weatherData, hasSearched }) => {
       <div className='flex flex-row items-center justify-between
       text-white py-3'>
         
-        <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="hardcode" 
+        <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="Weather icon" 
         className='w-20 h-20'
         />
-        {/* <img src={weatherData.weather[0].icon} alt="weather icon" /> */}
       
       <p className='text-5xl'>
-      {Math.round(weatherData.main.temp)}°
+      {units === 'metric' ? Math.round(weatherData.main.temp) + '°C' : Math.round(weatherData.main.temp * 9 / 5 + 32) + '°F'}
       </p>
 
       <div className='flex flex-col space-y-2'>
 
       <div className='flex font-light text-sm items-center justify-center'>
         <UilTemperatureHalf size={18} className='mr-1'/>
-        <span>Real Feel: {Math.round(weatherData.main.feels_like)}°</span>
+        <span>Real Feel: {units === 'metric' ? Math.round(weatherData.main.feels_like) + '°C' : Math.round(weatherData.main.feels_like * 9 / 5 + 32) + '°F'}</span>
       </div>
 
       <div className='flex font-light text-sm items-center justify-center'>
@@ -80,13 +79,13 @@ const Results = ({ weatherData, hasSearched }) => {
 
         <UilSun/>
         <p className='font-light'>
-        High: <span className='font-meduim ml-1'>{Math.round(weatherData.main.temp_max)}°
+        High: <span className='font-meduim ml-1'>{units === 'metric' ? Math.round(weatherData.main.temp_max) + '°C' : Math.round(weatherData.main.temp_max * 9 / 5 + 32) + '°F'}°
         </span></p>
         <p className='font-light'>|</p>
 
         <UilSun/>
         <p className='font-light'>
-        Low: <span className='font-meduim ml-1'>{Math.round(weatherData.main.temp_min)}°
+        Low: <span className='font-meduim ml-1'>{units === 'metric' ? Math.round(weatherData.main.temp_min) + '°C' : Math.round(weatherData.main.temp_min * 9 / 5 + 32) + '°F'}°
         </span></p>
 
       </div>
@@ -105,6 +104,7 @@ const Results = ({ weatherData, hasSearched }) => {
 Results.propTypes = {
   weatherData: PropTypes.object,
   hasSearched: PropTypes.bool,
+  units: PropTypes.string,
 };
 
 export default Results;

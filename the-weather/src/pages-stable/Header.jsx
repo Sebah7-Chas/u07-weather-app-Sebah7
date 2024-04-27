@@ -1,6 +1,4 @@
 import { Link, Outlet  } from "react-router-dom";
-import Weather from "./WeatherSearch";
-import Blue from "../assets/blue.png";
 
 const Nav = () => { 
   return (
@@ -15,13 +13,10 @@ const Nav = () => {
 
 const Header = () => {
  return (
-<div className="mx-auto max-w-screen-md mt-4 py-5 px-32
-bg-cover bg-no-repeat bg-center
-" style={{backgroundImage: `url(${Blue})`}}>
+<>
 <Nav/>
-<Weather />
 <Outlet />
-</div>
+</>
 );
 };
 

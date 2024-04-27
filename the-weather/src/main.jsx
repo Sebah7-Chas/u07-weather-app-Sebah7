@@ -1,23 +1,22 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
-// Removed unused import
 import { RouterProvider, createBrowserRouter, } from 'react-router-dom';
-import GetLocation from './components/GetLocation.jsx';
-import Weather from './components/WeatherSearch.jsx';
-import Header from './components/Header.jsx';
+import GetLocation from './components/GetLocation';
+import Weather from './components/search/WeatherSearch';
+import HomePage from './pages-stable/HomePage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Header/>
+      <HomePage/>
     ),
     children: [
-      { path: "home", element: <Header/>},
+      { path: "home", element: <HomePage />},
       { path: "getlocation", 
       element: <GetLocation />},
       { path: "weather",
-    element: <Weather />}
+      element: <Weather />}
     ]
   },
 ]);

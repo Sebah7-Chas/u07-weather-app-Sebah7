@@ -1,27 +1,43 @@
 import { useState } from "react";
+import { UserLocation } from "./StoreLocation";
 
-const GetLocation = () => {
+const Geolocation = () => {
+  const userPosition = UserLocation((state) => state.userLocation);
+  const setUserPosition = UserLocation(
+    (state) => state.updateUserLocation
+  );
 
-  const [location, setLocation] = useState({});
+  const [status, setStatus] = useState(null);
 
   const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
-      });
+    if (!navigator.geolocation) {
+      setStatus("Geolocation is not supported by your browser!");
+    } else {
+      setStatus("Loading");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setStatus("");
+          setUserPosition({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        () => {
+          setStatus("Unable to retrieve your location");
+        }
+      );
     }
   };
 
   return (
-    <div id="childcomponent">
-      <button onClick={getLocation}>Get Location</button>
-      <p>Latitude: {location.latitude}</p>
-      <p>Longitude: {location.longitude}</p>
-    </div>
+    <>
+      <button onClick={() => getLocation()}>Get location</button>
+      <h2>Coordinates</h2>
+      {status && <p>{status}</p>}
+      {userPosition?.latitude && <p>Latitude: {userPosition?.latitude}</p>}
+      {userPosition?.longitude && <p>Longitude: {userPosition?.longitude}</p>}
+    </>
   );
-}
+};
 
-export default GetLocation;
+export default Geolocation;
