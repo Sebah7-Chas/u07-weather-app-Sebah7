@@ -31,10 +31,7 @@ const Weather = () => {
       );
       console.log("Forecast Data by City:", forecastResponse.data);
 
-      // const pollenResponse = await axios.get(
-      //   `https://api.openweathermap.org/data/2.5/air_pollution/forecast?q=${cityName}&appid=${appId}&units=${units}`
-      // );
-      // console.log("pollution Data by Location:", pollenResponse.data);
+
 
       const { coord } = weatherResponse.data;
     const pollenResponse = await axios.get(
