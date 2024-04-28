@@ -1,6 +1,8 @@
 
 import PropTypes from 'prop-types';
 import { UilTemperatureHalf,
+  UilTemperature,
+  UilTemperatureEmpty,
   UilWind,
   UilTear,
   UilSun,
@@ -26,7 +28,8 @@ const Results = ({ weatherData, hasSearched, units }) => {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
-      })} | Local time: {new Date((weatherData.dt + weatherData.timezone) * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+      })} 
+      | Local time: {new Date((weatherData.dt + weatherData.timezone) * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </p>
           </div>
           
@@ -43,7 +46,7 @@ const Results = ({ weatherData, hasSearched, units }) => {
       text-white py-3'>
         
         <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="Weather icon" 
-        className='w-20 h-20'
+        className='w-40 h-40'
         />
       
       <p className='text-5xl'>
@@ -83,13 +86,13 @@ const Results = ({ weatherData, hasSearched, units }) => {
         </span></p>
         <p className='font-black'>|</p>
 
-        <UilSun/>
+        <UilTemperature/>
         <p className='font-black'>
         High: <span className='font-meduim ml-1'>{units === 'metric' ? Math.round(weatherData.main.temp_max) + '°C' : Math.round(weatherData.main.temp_max * 9 / 5 + 32) + '°F'}°
         </span></p>
         <p className='font-black'>|</p>
 
-        <UilSun/>
+        <UilTemperatureEmpty />
         <p className='font-black'>
         Low: <span className='font-meduim ml-1'>{units === 'metric' ? Math.round(weatherData.main.temp_min) + '°C' : Math.round(weatherData.main.temp_min * 9 / 5 + 32) + '°F'}°
         </span></p>
