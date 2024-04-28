@@ -17,9 +17,9 @@
 ### Extras
 
 - [x] The user can set/search for weather on a position manually
-- [ ] The user can get graphs in their forecast over time, which include:
-  - [ ] Highest / lowest temperature
-  - [ ] Average of highest / lowest temperature
+- [x] The user can get graphs in their forecast over time, which include:
+  - [x] Pollution concentration
+  - [x] Highest / lowest temperature
 
 -------------------------
 
@@ -39,7 +39,17 @@
 
 ## Local use?
 
-cd to ./the-weather/
-npm i
-npm run dev
+- cd to ./the-weather/
+- npm i
+- npm run dev
 
+## Tools
+
+- Vite
+- Dependencies:
+  - chart.js
+  - zustand
+  - iconscout
+- Tailwind
+- OpenWeatherAPI
+- [Netlify](https://papaya-llama-1b694e.netlify.app/)

@@ -4,6 +4,7 @@ import Results from '../components/result/SearchResults'
 import Forcast from '../components/result/ForcastResults'
 import { Outlet } from 'react-router-dom'
 import Thunder from "../assets/thunder.png";
+import LineGraph from '../components/result/GraphChart';
 
 function HomePage() {
   return (
@@ -17,6 +18,7 @@ function HomePage() {
     <Weather />
     <Results />
     <Forcast/>
+    <LineGraph />
     <Outlet />
     </div>
     </div>
