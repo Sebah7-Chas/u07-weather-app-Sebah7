@@ -5,29 +5,46 @@ import Results from '../result/SearchResults';
 import { UserLocation } from '../StoreLocation';
 import Forecast from '../result/ForcastResults';
 import PropTypes from 'prop-types';
+import LineGraph from '../result/GraphChart';
 
 const Weather = () => {
   const [city, setCity] = useState('');
   const [units, setUnits] = useState('metric');
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
+  const [pollutionData, setPollutionData] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
   const appId = import.meta.env.VITE_APP_ID;
   const userPosition = UserLocation(state => state.userLocation);
   const setUserPosition = UserLocation(state => state.updateUserLocation);
 
   const fetchDataByCity = async (cityName) => {
+    
     try {
       const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${appId}&units=${units}`
       );
       console.log("Weather Data by City:", weatherResponse.data);
+
       const forecastResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${appId}&units=${units}`
       );
       console.log("Forecast Data by City:", forecastResponse.data);
+
+      // const pollenResponse = await axios.get(
+      //   `https://api.openweathermap.org/data/2.5/air_pollution/forecast?q=${cityName}&appid=${appId}&units=${units}`
+      // );
+      // console.log("pollution Data by Location:", pollenResponse.data);
+
+      const { coord } = weatherResponse.data;
+    const pollenResponse = await axios.get(
+      `https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${coord.lat}&lon=${coord.lon}&appid=${appId}&units=${units}`
+    );
+    console.log("Pollution Data by City:", pollenResponse.data);
+
       setWeatherData(weatherResponse.data);
       setForecastData(forecastResponse.data);
+      setPollutionData(pollenResponse.data);
       setHasSearched(true);
     } catch (error) {
       console.error(error);
@@ -44,8 +61,13 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/forecast?lat=${userPosition.latitude}&lon=${userPosition.longitude}&appid=${appId}&units=${units}`
       );
       console.log("Forecast Data by Location:", forecastResponse.data);
+      const pollenResponse = await axios.get(
+        `https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${userPosition.latitude}&lon=${userPosition.longitude}&appid=${appId}&units=${units}`
+      );
+      console.log("Pollution Data by Location:", pollenResponse.data);
       setWeatherData(weatherResponse.data);
       setForecastData(forecastResponse.data);
+      setPollutionData(pollenResponse.data);
       setHasSearched(true);
     } catch (error) {
       console.error(error);
@@ -106,14 +128,15 @@ const Weather = () => {
           <p className='text-xl text-white mx-1'>|</p>
           <button onClick={handleUnitsChange} name='imperial' className='text-xl text-white font-bold'>{units === 'metric' ? '°F' : '°C'}</button>
         </div>
-        {hasSearched && weatherData && forecastData && (
+        {hasSearched && weatherData && forecastData && pollutionData && (
           <>
             {/* Display weather and forecast results */}
           </>
         )}
       </div>
       <Results weatherData={weatherData} forecastData={forecastData} hasSearched={hasSearched} units={units} />
-      <Forecast forcastData={forecastData} forecastData={forecastData} hasSearched={hasSearched} units={units}/>
+      <Forecast forecastData={forecastData} hasSearched={hasSearched} units={units}/>
+      <LineGraph pollutionData={pollutionData} forecastData={forecastData} hasSearched={hasSearched}/>
     </>
   );
 };
