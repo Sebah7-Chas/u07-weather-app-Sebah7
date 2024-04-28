@@ -132,8 +132,8 @@ const Weather = () => {
         )}
       </div>
       <Results weatherData={weatherData} forecastData={forecastData} hasSearched={hasSearched} units={units} />
-      <Forecast forecastData={forecastData} hasSearched={hasSearched} units={units}/>
       <LineGraph pollutionData={pollutionData} forecastData={forecastData} hasSearched={hasSearched}/>
+      <Forecast forecastData={forecastData} hasSearched={hasSearched} units={units}/>
     </>
   );
 };

@@ -44,7 +44,7 @@ const LineGraph = ({ pollutionData,forecastData, hasSearched}) => {
 
     datasets: [
     {
-      label: 'Сoncentration of O3(Ozone)',
+      label: 'O3(Ozone)',
       data: chart?.pollution?.list?.map(x => x.components.o3),
       backgroundColor: 'rgba(255, 206, 86, 0.2)',
       borderColor: 'black',
@@ -52,15 +52,15 @@ const LineGraph = ({ pollutionData,forecastData, hasSearched}) => {
       fill: true,
     },
     {
-      label: ' Сoncentration of CO(Carbon monoxide)',
-      data: chart?.pollution?.list?.map(x => x.components.co),
+      label: 'Fine particles',
+      data: chart?.pollution?.list?.map(x => x.components.pm2_5),
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
       borderColor: 'green',
       borderWidth: 1,
       fill: true,
     },
     {
-      label: 'Temp Max',
+      label: 'Temp-Max',
       data: chart?.forecast?.list?.map(x => x.main.temp_max),
       backgroundColor: 'rgba(153, 102, 255, 0.2)',
       borderColor: 'blue',
@@ -68,7 +68,7 @@ const LineGraph = ({ pollutionData,forecastData, hasSearched}) => {
       fill: true,
     },
     {
-      label: 'Temp Min',
+      label: 'Temp-Min',
       data: chart?.forecast?.list?.map(x => x.main.temp_min),
       backgroundColor: 'rgba(255, 159, 64, 0.2)',
       borderColor: 'red',
@@ -78,7 +78,7 @@ const LineGraph = ({ pollutionData,forecastData, hasSearched}) => {
   ]
   };
 
-  var options = {
+  const options = {
     maintainAspectRatio: false,
     scales: {
     },
@@ -90,8 +90,8 @@ const LineGraph = ({ pollutionData,forecastData, hasSearched}) => {
   }
 
   return (
-    <div className='bg-white  rounded-lg opacity-65'>
-      <div className='my-6'>
+    <div className='bg-white rounded-lg opacity-75'>
+      <div className='my-6 font-extrabold'>
       {pollutionData ? (
       <Line
         data={data}

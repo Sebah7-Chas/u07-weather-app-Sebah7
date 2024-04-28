@@ -19,7 +19,7 @@ const Forecast = ({ forecastData, hasSearched, units }) => {
     <>
       {forecastData ? (
         <div>
-          <div className='bg-purple-950 rounded-lg opacity-65'>
+          <div className='bg-purple-900 rounded-lg opacity-75'>
 <div className='flex items-center justify-start my-6'>
             <p className='text-white font-medium pl-2 uppercase'>5-Day Forecast</p>
           </div>
@@ -37,7 +37,7 @@ const Forecast = ({ forecastData, hasSearched, units }) => {
           </div>
           </div>
 
-          <div className='bg-purple-950  rounded-lg opacity-65'>
+          <div className='bg-purple-900  rounded-lg opacity-75'>
 
 <div className='flex items-center justify-start my-6'>
             <p className='text-white font-medium pl-2 uppercase'>3-hours Interval Forecast</p>

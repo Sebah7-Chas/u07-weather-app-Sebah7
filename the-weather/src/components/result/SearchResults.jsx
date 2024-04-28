@@ -19,7 +19,7 @@ const Results = ({ weatherData, hasSearched, units }) => {
       {weatherData ? (
 
         <div 
-        className='bg-purple-950  rounded-lg opacity-65'
+        className='bg-purple-900 rounded-lg opacity-75'
         >
           <div className='flex items-center justify-center my-6 '>
           <p className='text-white text-xl font-extralight'>
@@ -38,15 +38,15 @@ const Results = ({ weatherData, hasSearched, units }) => {
       </div>
 
       <div className='flex items-center justify-center py-6
-      text-xl text-cyan-300'>
+      text-xl font-semibold text-cyan-300'>
         <p>{weatherData.weather[0].main}</p>
       </div>
 
       <div className='flex flex-row items-center justify-between
-      text-white py-3'>
+      text-white py-3 px-1'>
         
         <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="Weather icon" 
-        className='w-40 h-40'
+        className='w-50 h-50 drop-shadow-lg'
         />
       
       <p className='text-5xl'>
