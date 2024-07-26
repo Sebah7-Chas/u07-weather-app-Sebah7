@@ -1,4 +1,6 @@
 
+Cloned from main 
+
 ### Project goals
 
 - [x]Display currunt weather of specific location
